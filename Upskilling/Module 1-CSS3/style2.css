@@ -1,0 +1,43 @@
+/* =========================
+   General Page Styles
+========================= */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 20px;
+}
+
+/* =========================
+   Main Heading Styles
+========================= */
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+/* =========================
+   Style for Main CTA Button
+========================= */
+
+.cta-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* =========================
+   Event Card Styles
+========================= */
+
+.eventCard {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+}

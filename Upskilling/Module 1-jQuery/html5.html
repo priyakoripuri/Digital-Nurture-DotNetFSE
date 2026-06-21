@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 5</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        #colorBox {
+            width: 200px;
+            height: 150px;
+            border: 2px solid black;
+            background-color: white;
+            margin-top: 15px;
+        }
+
+        button {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="colorBtn">Change Color</button>
+
+    <div id="colorBox"></div>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#colorBtn").click(function () {
+                $("#colorBox").css("background-color", "red");
+            });
+
+            $("#colorBtn").dblclick(function () {
+                $("#colorBox").css("background-color", "green");
+            });
+
+        });
+    </script>
+
+</body>
+</html>

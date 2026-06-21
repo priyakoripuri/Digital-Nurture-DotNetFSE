@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 2</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+    <h1>Original Heading</h1>
+
+    <p id="p1">This is Paragraph 1</p>
+    <p id="p2">This is Paragraph 2</p>
+
+    <button>Hide Paragraph 2</button>
+
+    <script>
+        $(document).ready(function () {
+
+            // Change h1 text
+            $("h1").text("Welcome to jQuery");
+
+            // Hide paragraph when button is clicked
+            $("button").click(function () {
+                $("#p2").hide();
+            });
+
+        });
+    </script>
+
+</body>
+</html>

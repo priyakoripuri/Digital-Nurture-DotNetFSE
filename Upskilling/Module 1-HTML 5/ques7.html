@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Invite</title>
+
+    <script>
+
+        // Video ready message
+        function videoReady() {
+            document.getElementById("msg").innerHTML =
+            "Video ready to play";
+        }
+
+        // Warn before leaving page
+        window.onbeforeunload = function () {
+            return "Your form is not submitted. Are you sure you want to leave?";
+        };
+
+    </script>
+</head>
+<body>
+
+    <h2>Community Event Promo Video</h2>
+
+    <video width="500" controls oncanplay="videoReady()">
+        <source src="event.mp4" type="video/mp4">
+        Your browser does not support video.
+    </video>
+
+    <p id="msg"></p>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Upskilling\Exercise6\bin\Debug\net10.0\Exercise6.exe
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Upskilling\Exercise6\bin\Debug\net10.0\Exercise6.deps.json
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Upskilling\Exercise6\bin\Debug\net10.0\Exercise6.runtimeconfig.json
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Upskilling\Exercise6\bin\Debug\net10.0\Exercise6.dll
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Upskilling\Exercise6\bin\Debug\net10.0\Exercise6.pdb
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Upskilling\Exercise6\obj\Debug\net10.0\Exercise6.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Upskilling\Exercise6\obj\Debug\net10.0\Exercise6.AssemblyInfoInputs.cache
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Upskilling\Exercise6\obj\Debug\net10.0\Exercise6.AssemblyInfo.cs
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Upskilling\Exercise6\obj\Debug\net10.0\Exercise6.csproj.CoreCompileInputs.cache
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Upskilling\Exercise6\obj\Debug\net10.0\Exercise6.sourcelink.json
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Upskilling\Exercise6\obj\Debug\net10.0\Exercise6.dll
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Upskilling\Exercise6\obj\Debug\net10.0\refint\Exercise6.dll
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Upskilling\Exercise6\obj\Debug\net10.0\Exercise6.pdb
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Upskilling\Exercise6\obj\Debug\net10.0\Exercise6.genruntimeconfig.cache
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Upskilling\Exercise6\obj\Debug\net10.0\ref\Exercise6.dll

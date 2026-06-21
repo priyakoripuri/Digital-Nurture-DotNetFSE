@@ -1,0 +1,46 @@
+/* Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+/* Link Styling */
+a:link {
+    color: blue;
+    text-decoration: none;
+}
+
+a:visited {
+    color: purple;
+}
+
+a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+a:active {
+    color: green;
+}
+
+/* Navigation Menu */
+.menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu li {
+    display: inline;
+    margin-right: 20px;
+}
+
+/* Event List */
+.eventList {
+    list-style-type: square;
+    list-style-position: inside;
+}
+
+.eventList li {
+    padding: 5px;
+    margin: 5px;
+}

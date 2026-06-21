@@ -1,0 +1,36 @@
+/* Body Background Image with Fallback Color */
+body {
+    background-color: #f0f0f0;
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+}
+
+/* Gradient Header */
+.sectionHeader {
+    background: linear-gradient(to right, #007BFF, #00C6FF);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Event Card */
+.eventCard {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #007BFF;
+    padding: 15px;
+    margin: 20px;
+}
+
+/* Heading Color using HEX */
+h2 {
+    color: #006400;
+}
+
+/* Paragraph Color using RGBA */
+p {
+    color: rgba(0, 0, 0, 0.8);
+}

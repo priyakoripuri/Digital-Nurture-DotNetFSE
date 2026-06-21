@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 3</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        .box {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            border: 1px solid black;
+            margin: 10px;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+
+    <button id="hideBtn">Hide</button>
+    <button id="showBtn">Show</button>
+    <button id="fadeOutBtn">Fade Out</button>
+    <button id="fadeInBtn">Fade In</button>
+    <button id="toggleBtn">Toggle</button>
+    <button id="chainBtn">Chain Effect</button>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#hideBtn").click(function () {
+                $(".box").hide();
+            });
+
+            $("#showBtn").click(function () {
+                $(".box").show();
+            });
+
+            $("#fadeOutBtn").click(function () {
+                $(".box").fadeOut();
+            });
+
+            $("#fadeInBtn").click(function () {
+                $(".box").fadeIn();
+            });
+
+            $("#toggleBtn").click(function () {
+                $(".box").toggle();
+            });
+
+            $("#chainBtn").click(function () {
+                $(".box")
+                    .slideUp()
+                    .delay(1000)
+                    .slideDown();
+            });
+
+        });
+    </script>
+
+</body>
+</html>
