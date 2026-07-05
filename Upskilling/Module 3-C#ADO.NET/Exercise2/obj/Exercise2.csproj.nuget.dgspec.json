@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Abhi\\Desktop\\Digital-Nurture-DotNetFSE\\Upskilling\\Module 3-C#ADO.NET\\Exercise2\\Exercise2.csproj": {}
+    "C:\\Users\\Abhi\\Desktop\\Digital-Nurture-DotNetFSE\\Upskilling\\Module 3-C#ADO.NET\\Exercise2\\Exercise2.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Abhi\\Desktop\\Digital-Nurture-DotNetFSE\\Upskilling\\Module 3-C#ADO.NET\\Exercise2\\Exercise2.csproj": {
+    "C:\\Users\\Abhi\\Desktop\\Digital-Nurture-DotNetFSE\\Upskilling\\Module 3-C#ADO.NET\\Exercise2\\Exercise2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Abhi\\Desktop\\Digital-Nurture-DotNetFSE\\Upskilling\\Module 3-C#ADO.NET\\Exercise2\\Exercise2.csproj",
+        "projectUniqueName": "C:\\Users\\Abhi\\Desktop\\Digital-Nurture-DotNetFSE\\Upskilling\\Module 3-C#ADO.NET\\Exercise2\\Exercise2.csproj",
         "projectName": "Exercise2",
-        "projectPath": "c:\\Users\\Abhi\\Desktop\\Digital-Nurture-DotNetFSE\\Upskilling\\Module 3-C#ADO.NET\\Exercise2\\Exercise2.csproj",
+        "projectPath": "C:\\Users\\Abhi\\Desktop\\Digital-Nurture-DotNetFSE\\Upskilling\\Module 3-C#ADO.NET\\Exercise2\\Exercise2.csproj",
         "packagesPath": "C:\\Users\\Abhi\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Abhi\\Desktop\\Digital-Nurture-DotNetFSE\\Upskilling\\Module 3-C#ADO.NET\\Exercise2\\obj\\",
+        "outputPath": "C:\\Users\\Abhi\\Desktop\\Digital-Nurture-DotNetFSE\\Upskilling\\Module 3-C#ADO.NET\\Exercise2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Abhi\\AppData\\Roaming\\NuGet\\NuGet.Config"
