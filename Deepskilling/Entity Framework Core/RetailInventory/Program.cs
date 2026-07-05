@@ -8,37 +8,35 @@ var options = new DbContextOptionsBuilder<AppDbContext>()
 
 using var context = new AppDbContext(options);
 
-// Create Categories
-var electronics = new Category
+// ------------------------------
+// Retrieve All Products
+// ------------------------------
+Console.WriteLine("===== ALL PRODUCTS =====");
+
+var products = await context.Products.ToListAsync();
+
+foreach (var p in products)
 {
-    CategoryName = "Electronics"
-};
+    Console.WriteLine($"{p.ProductName} - ₹{p.Price}");
+}
 
-var groceries = new Category
-{
-    CategoryName = "Groceries"
-};
+// ------------------------------
+// Find by ID
+// ------------------------------
+Console.WriteLine();
+Console.WriteLine("===== FIND BY ID =====");
 
-await context.Categories.AddRangeAsync(electronics, groceries);
+var product = await context.Products.FindAsync(1);
 
-// Create Products
-var product1 = new Product
-{
-    ProductName = "Laptop",
-    Price = 75000,
-    Category = electronics
-};
+Console.WriteLine($"Found: {product?.ProductName}");
 
-var product2 = new Product
-{
-    ProductName = "Rice Bag",
-    Price = 1200,
-    Category = groceries
-};
+// ------------------------------
+// FirstOrDefault with Condition
+// ------------------------------
+Console.WriteLine();
+Console.WriteLine("===== FIRST PRODUCT PRICE > 50000 =====");
 
-await context.Products.AddRangeAsync(product1, product2);
+var expensive = await context.Products
+    .FirstOrDefaultAsync(p => p.Price > 50000);
 
-// Save to database
-await context.SaveChangesAsync();
-
-Console.WriteLine("Data inserted successfully!");
+Console.WriteLine($"Expensive: {expensive?.ProductName}");
