@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CustomerCommLib")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4478ce893e753d1aa48897826ec5c353d8ecbab7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+df12e547bdc7efd86001a7db9007e3744a37c082")]
 [assembly: System.Reflection.AssemblyProductAttribute("CustomerCommLib")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CustomerCommLib")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
