@@ -1,0 +1,9 @@
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Deepskilling\WebApi\EmployeeJwtApi\obj\Debug\net10.0\EmployeeJwtApi.csproj.AssemblyReference.cache
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Deepskilling\WebApi\EmployeeJwtApi\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Deepskilling\WebApi\EmployeeJwtApi\obj\Debug\net10.0\EmployeeJwtApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Deepskilling\WebApi\EmployeeJwtApi\obj\Debug\net10.0\EmployeeJwtApi.AssemblyInfoInputs.cache
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Deepskilling\WebApi\EmployeeJwtApi\obj\Debug\net10.0\EmployeeJwtApi.AssemblyInfo.cs
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Deepskilling\WebApi\EmployeeJwtApi\obj\Debug\net10.0\EmployeeJwtApi.csproj.CoreCompileInputs.cache
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Deepskilling\WebApi\EmployeeJwtApi\obj\Debug\net10.0\EmployeeJwtApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Deepskilling\WebApi\EmployeeJwtApi\obj\Debug\net10.0\EmployeeJwtApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Abhi\Desktop\Digital-Nurture-DotNetFSE\Deepskilling\WebApi\EmployeeJwtApi\obj\Debug\net10.0\EmployeeJwtApi.sourcelink.json
