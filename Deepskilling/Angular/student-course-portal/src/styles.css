@@ -1,0 +1,279 @@
+/* ================================================================
+   Global Design System — Student Course Portal
+   Clean, Unified SaaS UI (Azure/Microsoft Learn inspired)
+   ================================================================ */
+
+:root {
+  /* Professional Blue Palette */
+  --color-primary:        #0f6cbd;
+  --color-primary-dark:   #0c5596;
+  --color-primary-light:  #e0f0ff;
+  --color-accent:         #2899f5;
+
+  /* Unified Light Theme for Sidebar & Navbar */
+  --color-sidebar-bg:     #ffffff;
+  --color-sidebar-active: #f3f2f1;
+  --color-sidebar-text:   #323130;
+  --color-sidebar-icon:   #605e5c;
+  --color-sidebar-hover:  #faf9f8;
+
+  /* App Backgrounds */
+  --color-bg:             #faf9f8;
+  --color-surface:        #ffffff;
+  --color-border:         #edebe9;
+
+  /* Typography Colors */
+  --color-text:           #201f1e;
+  --color-text-secondary: #605e5c;
+  --color-text-muted:     #a19f9d;
+
+  /* Status Colors */
+  --color-success:        #107c10;
+  --color-success-bg:     #dff6dd;
+  --color-warning:        #d83b01;
+  --color-warning-bg:     #fde7e9;
+
+  /* Sizing & Layout */
+  --sidebar-width:        240px;
+  --toolbar-height:       60px;
+  --radius:               16px;
+  --radius-sm:            8px;
+
+  /* Soft, realistic shadows */
+  --shadow-sm:  0 2px 4px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md:  0 8px 16px rgba(0,0,0,0.04), 0 2px 4px rgba(0,0,0,0.02);
+
+  --transition: 200ms ease;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ── 2. Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── 3. Material Font Override ── */
+.mat-typography, .mat-mdc-button, .mat-mdc-form-field,
+.mat-mdc-card, .mat-mdc-list-item, mat-toolbar {
+  font-family: var(--font) !important;
+}
+
+/* ── 4. Sidebar Override (global scope needed for Material host) ── */
+.app-sidenav {
+  background: var(--color-sidebar-bg) !important;
+  border-right: 1px solid var(--color-border) !important;
+  /* Animate width for collapse/expand */
+  transition: width 250ms cubic-bezier(.4,0,.2,1) !important;
+  overflow-x: hidden !important; 
+}
+
+/* Sidebar nav-list items */
+.app-sidenav .mat-mdc-list-item {
+  margin: 4px 12px;
+  border-radius: var(--radius-sm) !important;
+  height: 40px !important;
+  color: var(--color-sidebar-text) !important;
+  transition: background var(--transition), color var(--transition) !important;
+}
+
+.app-sidenav .mat-mdc-list-item:hover:not(.nav-item--active) {
+  background: var(--color-sidebar-hover) !important;
+}
+
+.app-sidenav .mat-mdc-list-item .mat-mdc-list-item-unscoped-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.app-sidenav .nav-item--active {
+  background: var(--color-sidebar-active) !important;
+  color: var(--color-primary) !important;
+  font-weight: 600 !important;
+  position: relative;
+}
+
+/* Left accent border for active item */
+.app-sidenav .nav-item--active::before {
+  content: "";
+  position: absolute;
+  left: -12px; /* Offset to edge of sidebar since item has margin */
+  top: 6px;
+  bottom: 6px;
+  width: 4px;
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+/* ── Collapsed Sidebar Logic ── */
+.sidebar-collapsed .nav-label,
+.sidebar-collapsed .brand-name {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 150ms ease !important;
+}
+
+.sidebar-collapsed .mat-mdc-list-item .mat-mdc-list-item-unscoped-content {
+  justify-content: center;
+  gap: 0;
+}
+
+.sidebar-collapsed .mat-mdc-list-item {
+  margin: 4px 16px;
+}
+
+.app-sidenav .nav-item--active .mat-icon {
+  color: var(--color-primary) !important;
+}
+
+.app-sidenav .mat-icon {
+  color: var(--color-sidebar-icon);
+}
+
+.app-sidenav .mdc-list-item__primary-text {
+  color: inherit !important;
+}
+
+/* ── 5. Toolbar Override ── */
+.top-toolbar.mat-toolbar {
+  background: var(--color-surface) !important;
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: none !important;
+  height: var(--toolbar-height) !important;
+  position: sticky;
+  top: 0;
+  z-index: 500;
+}
+
+/* ── 6. Material Card Overrides ── */
+.mat-mdc-card {
+  border-radius: var(--radius) !important;
+  box-shadow: var(--shadow-sm) !important;
+  border: 1px solid var(--color-border) !important;
+  transition: box-shadow var(--transition), transform var(--transition) !important;
+  background: var(--color-surface) !important;
+}
+
+.mat-mdc-card:hover {
+  box-shadow: var(--shadow-md) !important;
+  transform: translateY(-2px);
+}
+
+/* ── 7. Button Overrides ── */
+.mat-mdc-button, .mat-mdc-outlined-button,
+.mat-mdc-raised-button, .mat-mdc-flat-button {
+  border-radius: var(--radius-sm) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  font-family: var(--font) !important;
+  box-shadow: none !important; /* Flat modern look */
+}
+
+.mat-mdc-flat-button.mat-primary {
+  background-color: var(--color-primary) !important;
+}
+
+/* ── 8. Shared Page Utilities ── */
+.page-wrapper {
+  padding: 24px 32px;
+  min-height: calc(100vh - var(--toolbar-height));
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.page-subtitle {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  margin-top: 6px;
+}
+
+/* Status chip helper */
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.status-chip--enrolled { background: var(--color-success-bg); color: var(--color-success); }
+.status-chip--available { background: var(--color-primary-light); color: var(--color-primary-dark); }
+.status-chip--pending { background: var(--color-warning-bg); color: var(--color-warning); }
+
+/* ── 9. Global Responsive Design ── */
+@media (max-width: 1024px) {
+  .page-wrapper {
+    padding: 20px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-wrapper {
+    padding: 16px;
+  }
+  
+  /* Stack grid layouts */
+  .course-grid, .stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Forms become full width */
+  .form-container {
+    max-width: 100% !important;
+  }
+  
+  /* Buttons wrap correctly */
+  .hero-actions, .form-actions {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  
+  .hero-actions button, .hero-actions a {
+    flex: 1 1 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    overflow-x: hidden;
+  }
+  
+  .page-title, .hero-title {
+    font-size: 1.5rem !important;
+  }
+  
+  .page-subtitle, .hero-subtitle {
+    font-size: 0.9rem !important;
+  }
+  
+  /* Ensure cards fit */
+  .mat-mdc-card {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .form-actions button {
+    width: 100%;
+  }
+}

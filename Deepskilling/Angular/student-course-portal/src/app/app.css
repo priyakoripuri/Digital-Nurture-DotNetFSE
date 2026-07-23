@@ -1,0 +1,112 @@
+/* app.css — Root shell layout */
+
+.app-shell {
+  height: 100vh;
+  /* Disable text selection while dragging the sidebar globally */
+  user-select: auto;
+}
+
+.sidenav-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.page-main {
+  flex: 1;
+  overflow: auto;
+  background: var(--color-bg);
+}
+
+/* ── Sidebar Brand ── */
+.sidenav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 24px 16px;
+  margin-bottom: 8px;
+}
+
+.brand-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brand-icon {
+  color: #fff !important;
+  font-size: 18px !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.brand-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.2;
+  transition: opacity var(--transition);
+  white-space: nowrap;
+}
+
+/* ── Drag Handle ── */
+.resize-handle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 6px;
+  cursor: col-resize;
+  background: transparent;
+  transition: background var(--transition);
+  z-index: 10;
+}
+
+.resize-handle:hover,
+.resize-handle:active {
+  background: var(--color-border);
+}
+
+/* ── Nav list ── */
+.sidenav-nav {
+  padding: 0 !important;
+}
+
+.nav-icon {
+  font-size: 20px !important;
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.nav-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ── Top Toolbar ── */
+.menu-toggle {
+  color: var(--color-text-secondary) !important;
+  margin-right: 8px !important;
+}
+
+.toolbar-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.toolbar-spacer {
+  flex: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: inline-flex !important;
+  }
+}

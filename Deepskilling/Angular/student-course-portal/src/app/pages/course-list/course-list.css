@@ -1,0 +1,71 @@
+/* course-list.css — Course catalog styling */
+
+.page-header {
+  margin-bottom: 32px;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.course-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.course-card-header {
+  margin-bottom: 12px;
+  padding: 16px 16px 0 !important;
+}
+
+.course-icon-wrapper {
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px !important;
+  width: 48px !important;
+  height: 48px !important;
+}
+
+.course-title {
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 4px !important;
+  color: var(--color-text) !important;
+}
+
+.course-code {
+  font-size: 0.85rem !important;
+  color: var(--color-text-secondary) !important;
+}
+
+.course-content {
+  flex-grow: 1;
+  padding: 0 16px 16px !important;
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.status-label {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.course-actions {
+  padding: 12px 16px 16px !important;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: flex-end;
+}

@@ -1,0 +1,43 @@
+<mat-card class="course-card" 
+          [ngClass]="cardClasses" 
+          [ngStyle]="{'border-left-color': course.gradeStatus === 'passed' ? '#22c55e' : course.gradeStatus === 'failed' ? '#ef4444' : course.gradeStatus === 'pending' ? '#6b7280' : 'transparent'}">
+  <mat-card-header class="course-card-header" [appHighlight]="'lightblue'">
+    <div mat-card-avatar class="course-icon-wrapper">
+      <mat-icon>library_books</mat-icon>
+    </div>
+    <mat-card-title class="course-title">{{ course.name }}</mat-card-title>
+    <mat-card-subtitle class="course-code">{{ course.code }} • {{ course.credits | creditLabel }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content class="course-content">
+    <div class="status-row">
+      <span class="status-label">Status:</span>
+      <span class="status-chip status-chip--available">Available</span>
+    </div>
+
+    <!-- ngSwitch for grade badges -->
+    <div *ngIf="course.gradeStatus" [ngSwitch]="course.gradeStatus" style="margin-top: 12px;">
+      <span *ngSwitchCase="'passed'" class="badge badge--passed">Passed</span>
+      <span *ngSwitchCase="'failed'" class="badge badge--failed">Failed</span>
+      <span *ngSwitchCase="'pending'" class="badge badge--pending">Pending</span>
+    </div>
+
+    <!-- Expanded content (CSS transition) -->
+    <div class="course-details">
+      Detailed course syllabus, instructor information, and prerequisites would go here.
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions class="course-actions">
+    <button mat-button (click)="$event.stopPropagation(); isExpanded = !isExpanded">Show Details</button>
+    <!-- 
+      (click) = event binding pushing data to the parent via @Output.
+      Use NgRx state to determine UI.
+    -->
+    <ng-container *ngIf="{ isEnrolled: isEnrolled$ | async } as state">
+      <button mat-flat-button [color]="state.isEnrolled ? 'warn' : 'primary'" (click)="$event.stopPropagation(); onEnrollClick()">
+        {{ state.isEnrolled ? 'Unenroll' : 'Enroll Now' }}
+      </button>
+    </ng-container>
+  </mat-card-actions>
+</mat-card>

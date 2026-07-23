@@ -1,0 +1,50 @@
+<div class="page-wrapper" *ngIf="course; else notFound">
+  <div class="page-header">
+    <a routerLink="/courses" mat-button color="primary" class="back-link">
+      <mat-icon>arrow_back</mat-icon> Back to Courses
+    </a>
+    <h1 class="page-title">{{ course.name }}</h1>
+    <p class="page-subtitle">{{ course.code }}</p>
+  </div>
+
+  <mat-card class="detail-card">
+    <mat-card-header>
+      <mat-icon mat-card-avatar color="primary">library_books</mat-icon>
+      <mat-card-title>Course Details</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="detail-grid">
+        <div class="detail-item">
+          <strong>Credits:</strong> {{ course.credits | creditLabel }}
+        </div>
+        <div class="detail-item" *ngIf="course.gradeStatus">
+          <strong>Status:</strong> 
+          <span class="status-badge" [ngClass]="'status-' + course.gradeStatus">
+            {{ course.gradeStatus | titlecase }}
+          </span>
+        </div>
+      </div>
+      
+      <div style="margin-top: 24px;" *ngIf="enrolledStudents.length > 0">
+        <h3 style="margin-bottom: 8px; font-weight: 500;">Enrolled Students</h3>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li *ngFor="let student of enrolledStudents" style="padding: 8px 12px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-sm); margin-bottom: 4px;">
+            <mat-icon style="vertical-align: middle; margin-right: 8px; color: var(--color-primary);">person</mat-icon>
+            {{ student.name }}
+          </li>
+        </ul>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<ng-template #notFound>
+  <div class="page-wrapper">
+    <mat-card style="padding: 32px; text-align: center;">
+      <mat-icon style="font-size: 48px; width: 48px; height: 48px; color: #ef4444;">error_outline</mat-icon>
+      <h2>Course Not Found</h2>
+      <p>The requested course could not be located in the catalog.</p>
+      <a routerLink="/courses" mat-flat-button color="primary">Return to Catalog</a>
+    </mat-card>
+  </div>
+</ng-template>

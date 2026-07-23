@@ -1,0 +1,52 @@
+<div class="page-wrapper">
+  
+  <div class="page-header">
+    <h1 class="page-title">Course Catalog</h1>
+    <p class="page-subtitle">Browse and enroll in available courses for this semester.</p>
+    
+    <!-- Search Input — pushes ?search= query param to the URL -->
+    <div style="margin-top: 24px; max-width: 400px;">
+      <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="onSearchChange()" 
+             placeholder="Search courses..." 
+             style="width: 100%; padding: 10px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);" />
+    </div>
+  </div>
+
+  <!-- STATE 1: Loading -->
+  <div *ngIf="isLoading$ | async">
+    <p style="text-align: center; padding: 32px; color: var(--color-text-secondary); font-size: 1.1rem;">
+      Loading courses...
+    </p>
+  </div>
+
+  <!-- STATE 2: Error (only shown when not loading) -->
+  <div *ngIf="(isLoading$ | async) === false && (errorMessage$ | async) as errorMessage"
+       style="margin: 24px 0; padding: 16px; background: #fee2e2; color: #991b1b; border-radius: var(--radius-sm); border: 1px solid #f87171;">
+    <strong>Error:</strong> {{ errorMessage }}
+  </div>
+
+  <!-- Use as courses to avoid multiple async subscriptions -->
+  <ng-container *ngIf="courses$ | async as courses">
+    
+    <!-- STATE 3: Empty (only shown when not loading, no error, no courses) -->
+    <div *ngIf="(isLoading$ | async) === false && !(errorMessage$ | async) && courses.length === 0">
+      <p style="text-align: center; padding: 32px; color: var(--color-text-secondary); font-size: 1.1rem;">
+        No courses available.
+      </p>
+    </div>
+
+    <!-- STATE 4: Course Grid (only shown when not loading, no error, has courses) -->
+    <section class="course-grid" *ngIf="(isLoading$ | async) === false && !(errorMessage$ | async) && courses.length > 0">
+      <app-course-card 
+        *ngFor="let c of courses; trackBy: trackByCourseId"
+        [course]="c" 
+        (click)="viewCourse(c)"
+        style="cursor: pointer;"
+        (enrollRequested)="onEnroll($event)">
+      </app-course-card>
+    </section>
+
+  </ng-container>
+
+</div>
+

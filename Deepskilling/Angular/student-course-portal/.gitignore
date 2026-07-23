@@ -1,0 +1,50 @@
+# Angular Build Outputs
+dist/
+.angular/
+.angular/cache/
+out-tsc/
+coverage/
+
+# Dependencies
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDEs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Temporary Files
+tmp/
+temp/
+.cache/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Testing & Reports
+coverage/
+karma.conf.js.bak
+
+# Screenshots
+__screenshots__/
+
+# Environment Files
+.env
+.env.local
+
+# Misc
+.sass-cache/
+.history/
+connect.lock
+libpeerconnection.log
+testem.log
+typings/

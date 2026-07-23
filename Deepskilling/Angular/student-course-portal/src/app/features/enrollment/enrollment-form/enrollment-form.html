@@ -1,0 +1,101 @@
+<div class="page-wrapper">
+  <div class="page-header">
+    <h1 class="page-title">Course Enrollment</h1>
+    <p class="page-subtitle">Submit a request to enroll in a new semester course.</p>
+  </div>
+
+<div class="form-container">
+  <mat-card class="form-card">
+    <mat-card-content>
+      
+      <!-- Success Message -->
+      <div *ngIf="submitted" class="success-banner">
+        <mat-icon>check_circle</mat-icon>
+        <span>Enrollment request submitted successfully!</span>
+      </div>
+
+      <!-- Template-Driven Form -->
+      <form #enrollForm="ngForm" (ngSubmit)="onSubmit(enrollForm)" class="enrollment-form">
+        
+        <!-- Student Name -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Student Name</mat-label>
+          <input matInput type="text" 
+                 id="studentName" 
+                 name="studentName" 
+                 [(ngModel)]="studentName"
+                 required 
+                 minlength="3"
+                 #nameCtrl="ngModel">
+          <mat-icon matPrefix>person</mat-icon>
+          <mat-error *ngIf="nameCtrl.invalid && nameCtrl.touched">
+            <span *ngIf="nameCtrl.errors?.['required']">Name is required</span>
+            <span *ngIf="nameCtrl.errors?.['minlength']">Name must be at least 3 characters</span>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Student Email -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Student Email</mat-label>
+          <input matInput type="email" 
+                 id="studentEmail" 
+                 name="studentEmail" 
+                 [(ngModel)]="studentEmail"
+                 required 
+                 email
+                 #emailCtrl="ngModel">
+          <mat-icon matPrefix>email</mat-icon>
+          <mat-error *ngIf="emailCtrl.invalid && emailCtrl.touched">
+            <span *ngIf="emailCtrl.errors?.['required']">Email is required</span>
+            <span *ngIf="emailCtrl.errors?.['email']">Enter a valid email address</span>
+          </mat-error>
+        </mat-form-field>
+
+        <div class="form-row">
+          <!-- Course ID -->
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Course ID</mat-label>
+            <input matInput type="number" 
+                   id="courseId" 
+                   name="courseId" 
+                   [(ngModel)]="courseId"
+                   required
+                   #courseCtrl="ngModel">
+            <mat-icon matPrefix>tag</mat-icon>
+            <mat-error *ngIf="courseCtrl.invalid && courseCtrl.touched">
+              <span *ngIf="courseCtrl.errors?.['required']">Course ID is required</span>
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Preferred Semester -->
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Preferred Semester</mat-label>
+            <mat-select id="preferredSemester" name="preferredSemester" [(ngModel)]="preferredSemester" required>
+              <mat-option value="Odd">Odd Semester</mat-option>
+              <mat-option value="Even">Even Semester</mat-option>
+            </mat-select>
+            <mat-icon matPrefix>calendar_today</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <!-- Agree to Terms -->
+        <div class="terms-container">
+          <mat-checkbox id="agreeToTerms" name="agreeToTerms" [(ngModel)]="agreeToTerms" required #termsCtrl="ngModel">
+            I agree to the enrollment terms and conditions.
+          </mat-checkbox>
+          <div class="terms-error" *ngIf="termsCtrl.invalid && termsCtrl.touched">
+            You must accept the terms
+          </div>
+        </div>
+
+        <!-- Form Actions -->
+        <mat-card-actions class="form-actions">
+          <button mat-button type="button" (click)="resetForm(enrollForm)">Reset</button>
+          <button mat-flat-button color="primary" type="submit" [disabled]="enrollForm.invalid">Submit Request</button>
+        </mat-card-actions>
+      </form>
+
+    </mat-card-content>
+  </mat-card>
+</div>
+</div>

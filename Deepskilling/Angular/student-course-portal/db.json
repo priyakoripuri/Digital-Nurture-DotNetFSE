@@ -1,0 +1,14 @@
+{
+  "courses": [
+    { "id": 1, "name": "Angular Development", "code": "ANG101", "credits": 4, "gradeStatus": "passed" },
+    { "id": 2, "name": "Data Structures",     "code": "DS201",  "credits": 3, "gradeStatus": "passed" },
+    { "id": 3, "name": "Database Systems",    "code": "DB301",  "credits": 4, "gradeStatus": "failed" },
+    { "id": 4, "name": "Cloud Computing",     "code": "CC401",  "credits": 3, "gradeStatus": "pending" },
+    { "id": 5, "name": "Machine Learning",    "code": "ML501",  "credits": 4 }
+  ],
+  "students": [
+    { "id": 1, "courseId": 1, "name": "Alice" },
+    { "id": 2, "courseId": 1, "name": "Bob" }
+  ],
+  "enrollments": []
+}

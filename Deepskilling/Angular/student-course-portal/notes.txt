@@ -1,0 +1,61 @@
+====================================================
+ Digital Nurture 5.0 — Angular Student Course Portal
+ Hands-On 1: Project Structure Notes
+ Author : Sarfaraz
+ Date   : 2026-07-17
+====================================================
+
+FILE EXPLANATIONS
+-----------------
+
+angular.json
+  The Angular CLI workspace configuration file that defines build options, serve settings,
+  asset paths, style files, and project-level metadata for every CLI command (ng build, ng serve, etc.).
+
+tsconfig.json
+  The root TypeScript configuration for the entire workspace; sets global compiler options like
+  strict mode, target ES version, and module resolution that all sub-configs inherit.
+
+tsconfig.app.json
+  A TypeScript config that extends tsconfig.json specifically for the application source code
+  (excludes spec/test files), pointing the compiler output to out-tsc/app.
+
+package.json
+  The Node.js project manifest listing all Angular dependencies, dev tools, and npm script
+  shortcuts such as "npm start" (ng serve) and "npm run build" (ng build).
+
+src/main.ts
+  The application entry point that calls bootstrapApplication() to launch the standalone
+  root App component with the global appConfig (providers, router, etc.).
+
+src/app/app.config.ts
+  Defines the ApplicationConfig object (appConfig) that registers application-wide providers
+  including the router, zone.js change detection, and global error listeners.
+
+src/app/app.ts
+  The root standalone App component; it hosts the <app-header> and <router-outlet> and acts
+  as the top-level shell that every page is rendered inside.
+
+src/index.html
+  The single HTML page that the browser loads; contains the <app-root> custom element where
+  Angular mounts the entire application at runtime.
+
+----------------------------------------------------
+BUDGETS in angular.json (production build section)
+----------------------------------------------------
+
+  "maximumWarning": "500kB"
+    → Angular CLI prints a WARNING in the console if the initial JS bundle size exceeds 500 kB,
+      reminding you to consider code-splitting or lazy loading.
+
+  "maximumError": "1MB"
+    → Angular CLI FAILS the build with an error if the initial JS bundle exceeds 1 MB,
+      enforcing a hard upper limit to prevent shipping an unacceptably large bundle.
+
+  "maximumWarning": "4kB"  (anyComponentStyle)
+    → A WARNING is shown if a single component's compiled CSS exceeds 4 kB.
+
+  "maximumError": "8kB"   (anyComponentStyle)
+    → The build FAILS if a single component's compiled CSS exceeds 8 kB.
+
+====================================================

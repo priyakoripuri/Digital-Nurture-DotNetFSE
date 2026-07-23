@@ -1,0 +1,122 @@
+<div class="page-wrapper">
+  <div class="page-header">
+    <h1 class="page-title">Reactive Enrollment</h1>
+    <p class="page-subtitle">Submit a request to enroll in a new semester course.</p>
+  </div>
+
+<div class="form-container">
+  <mat-card class="form-card">
+    <mat-card-content>
+
+      <!-- ── Success Banner ────────────────────────────────────────────────── -->
+      <div *ngIf="submitted" class="success-banner">
+        <mat-icon>check_circle</mat-icon>
+        <span>Enrollment request submitted successfully!</span>
+      </div>
+
+      <!-- ── Reactive Form ─────────────────────────────────────────────────── -->
+      <form [formGroup]="enrollForm" (ngSubmit)="onSubmit()" class="enrollment-form">
+
+        <!-- Student Name -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Student Name</mat-label>
+          <mat-icon matPrefix>person</mat-icon>
+          <input matInput type="text" formControlName="studentName" placeholder="Enter your full name">
+          <mat-error *ngIf="nameCtrl.invalid && nameCtrl.touched">
+            <span *ngIf="nameCtrl.errors?.['required']">Name is required</span>
+            <span *ngIf="nameCtrl.errors?.['minlength']">Name must be at least 3 characters</span>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Student Email -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Student Email</mat-label>
+          <mat-icon matPrefix>email</mat-icon>
+          <input matInput type="email" formControlName="studentEmail" placeholder="Enter your email">
+          <!-- Async pending indicator -->
+          <mat-hint *ngIf="emailCtrl.pending" class="checking-hint">
+            <mat-icon style="font-size:14px; vertical-align:middle;">hourglass_empty</mat-icon>
+            Checking email availability...
+          </mat-hint>
+          <mat-error *ngIf="emailCtrl.invalid && emailCtrl.touched">
+            <span *ngIf="emailCtrl.errors?.['required']">Email is required</span>
+            <span *ngIf="emailCtrl.errors?.['email']">Enter a valid email address</span>
+            <span *ngIf="emailCtrl.errors?.['emailTaken']">Email already taken</span>
+          </mat-error>
+        </mat-form-field>
+
+        <div class="form-row">
+          <!-- Course ID (with custom sync validator) -->
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Course ID</mat-label>
+            <mat-icon matPrefix>tag</mat-icon>
+            <input matInput type="text" formControlName="courseId" placeholder="e.g. ANG101">
+            <mat-error *ngIf="courseIdCtrl.invalid && courseIdCtrl.touched">
+              <span *ngIf="courseIdCtrl.errors?.['required']">Course ID is required</span>
+              <span *ngIf="courseIdCtrl.errors?.['noCourseCode']">Course code starting with XX is not allowed</span>
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Preferred Semester -->
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Preferred Semester</mat-label>
+            <mat-icon matPrefix>calendar_today</mat-icon>
+            <mat-select formControlName="preferredSemester">
+              <mat-option value="Odd">Odd Semester</mat-option>
+              <mat-option value="Even">Even Semester</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <!-- Agree to Terms -->
+        <div class="terms-container">
+          <mat-checkbox formControlName="agreeToTerms">
+            I agree to the enrollment terms and conditions.
+          </mat-checkbox>
+          <div class="terms-error" *ngIf="termsCtrl.invalid && termsCtrl.touched">
+            You must accept the terms
+          </div>
+        </div>
+
+        <mat-divider style="margin: 8px 0;"></mat-divider>
+
+        <!-- ── FormArray: Additional Courses ──────────────────────────────── -->
+        <div class="section-header">
+          <h3 class="section-title">Additional Courses</h3>
+          <button mat-stroked-button type="button" color="primary" (click)="addCourse()">
+            <mat-icon>add</mat-icon>
+            Add Another Course
+          </button>
+        </div>
+
+        <div formArrayName="additionalCourses">
+          <div
+            *ngFor="let ctrl of additionalCourses.controls; let i = index"
+            class="additional-course-row">
+            <mat-form-field appearance="outline" class="additional-course-field">
+              <mat-label>Additional Course {{ i + 1 }}</mat-label>
+              <mat-icon matPrefix>library_books</mat-icon>
+              <input matInput type="text" [formControlName]="i" placeholder="e.g. DS201">
+              <mat-error *ngIf="ctrl.invalid && ctrl.touched">
+                Course name is required
+              </mat-error>
+            </mat-form-field>
+            <button mat-icon-button type="button" color="warn" (click)="removeCourse(i)" class="remove-btn" aria-label="Remove course">
+              <mat-icon>delete_outline</mat-icon>
+            </button>
+          </div>
+        </div>
+
+        <!-- ── Form Actions ──────────────────────────────────────────────── -->
+        <div class="form-actions">
+          <button mat-button type="button" (click)="reset()">Reset</button>
+          <button mat-flat-button color="primary" type="submit" [disabled]="enrollForm.invalid">
+            Submit Request
+          </button>
+        </div>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+</div>

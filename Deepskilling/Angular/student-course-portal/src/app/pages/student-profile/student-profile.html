@@ -1,0 +1,113 @@
+<div class="page-wrapper profile-page-wrapper">
+  
+  <div class="page-header">
+    <h1 class="page-title">My Profile</h1>
+    <p class="page-subtitle">View and manage your academic profile information.</p>
+  </div>
+
+  <div class="profile-content">
+    
+    <!-- Profile Card -->
+    <mat-card class="profile-card">
+      <div class="profile-header-bg"></div>
+      
+      <div class="profile-avatar-section">
+        <div class="avatar">
+          <span class="avatar-text">{{ student.initials }}</span>
+        </div>
+        <div class="profile-title-area">
+          <h2 class="profile-name">{{ student.name }}</h2>
+          <span class="status-chip status-chip--enrolled">
+            <mat-icon class="status-icon">verified</mat-icon>
+            {{ student.status }}
+          </span>
+        </div>
+      </div>
+
+      <mat-card-content class="profile-details-content">
+        <div class="details-grid">
+          
+          <div class="detail-item">
+            <div class="detail-label">Roll Number</div>
+            <div class="detail-value">
+              <mat-icon class="detail-icon">badge</mat-icon>
+              {{ student.rollNumber }}
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-label">Department</div>
+            <div class="detail-value">
+              <mat-icon class="detail-icon">business</mat-icon>
+              {{ student.department }}
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-label">Email Address</div>
+            <div class="detail-value">
+              <mat-icon class="detail-icon">email</mat-icon>
+              {{ student.email }}
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-label">Current GPA</div>
+            <div class="detail-value">
+              <mat-icon class="detail-icon">grade</mat-icon>
+              {{ student.gpa }}
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-label">Expected Graduation</div>
+            <div class="detail-value">
+              <mat-icon class="detail-icon">school</mat-icon>
+              {{ student.expectedGraduation }}
+            </div>
+          </div>
+
+        </div>
+      </mat-card-content>
+
+      <mat-divider></mat-divider>
+      
+      <mat-card-actions class="profile-actions">
+        <button mat-stroked-button color="primary">Edit Profile</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <!-- Enrolled Courses Section -->
+    <mat-card class="enrolled-courses-card">
+      <ng-container *ngIf="enrolledCourses$ | async as enrolledCourses">
+        <mat-card-header>
+          <mat-icon mat-card-avatar color="primary">class</mat-icon>
+          <mat-card-title>Enrolled Courses</mat-card-title>
+          <mat-card-subtitle>You are currently enrolled in {{ enrolledCourses.length }} course(s).</mat-card-subtitle>
+        </mat-card-header>
+        
+        <mat-card-content>
+          <mat-list *ngIf="enrolledCourses.length > 0; else noCourses">
+            <ng-container *ngFor="let course of enrolledCourses; let last = last">
+              <mat-list-item>
+                <mat-icon matListItemIcon color="primary">menu_book</mat-icon>
+                <div matListItemTitle>{{ course.name }}</div>
+                <div matListItemLine>{{ course.code }} • {{ course.credits }} Credits</div>
+              </mat-list-item>
+              <mat-divider *ngIf="!last"></mat-divider>
+            </ng-container>
+          </mat-list>
+          
+          <ng-template #noCourses>
+            <div class="no-courses-state">
+              <mat-icon class="no-courses-icon">sentiment_dissatisfied</mat-icon>
+              <p>You haven't enrolled in any courses yet.</p>
+            </div>
+          </ng-template>
+        </mat-card-content>
+      </ng-container>
+    </mat-card>
+
+  </div>
+
+</div>
